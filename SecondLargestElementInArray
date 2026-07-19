@@ -1,0 +1,15 @@
+class Solution {
+    public int getSecondLargest(int[] nums) {
+        int n = nums.length;
+        int ans = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++){
+            if(nums[i]>ans) ans = nums[i];
+        }
+        int newAns = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++){
+            if(nums[i]>newAns && nums[i] != ans) newAns = nums[i];
+        }
+        if(newAns == Integer.MIN_VALUE) return -1;
+        return newAns;
+    }
+}
